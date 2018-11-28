@@ -23,7 +23,10 @@
         {% endif %}
         
         <form method="POST">
+            {% csrf_token %}
             {{ login_form }}
+            <button type="sub">{% csrf_token %}Login</button>
         </form>
+
     </body>
 </html>
