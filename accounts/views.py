@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
+from django.contrib.auth.decorators import login_required
 from accounts.forms import UserLoginForm
 
 def index(request):
     return render(request, 'index.html')
-
+    
+@login_required
 def logout(request):
     auth.logout(request)
     messages.success(request, "You have successfuly been logged out!")
