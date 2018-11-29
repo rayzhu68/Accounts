@@ -6,4 +6,10 @@
 
 {% block content %}
     <p>If you have registered, you can <a href="{% url 'login' %}">sign in here</a></p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ registration_form.as_p }}
+    <button type="sub">{% csrf_token %}Register</button>
+    </form>
+
 {% endblock %}
