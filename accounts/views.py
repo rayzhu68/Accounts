@@ -13,6 +13,7 @@ def logout(request):
     return redirect(reverse('index'))
     
 def login(request):
+    """return a login page"""
     if request.method=="POST":
         login_form = UserLoginForm(request.POST)
         
@@ -29,4 +30,6 @@ def login(request):
     
     return render(request, 'login.html', {"login_form": login_form})
     
-    
+def registration(request):
+    """Render the registration page"""
+    return render(request, 'registration.html')
