@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, UserRegistrationForm
 
 def index(request):
@@ -46,7 +47,7 @@ def registration(request):
                                      password=request.POST['password1'])
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully registered")
+                messages.success(request, "You have successfully registered and logged in")
                 return redirect(reverse('index'))
             else:
                 messages.error(request, "unable to register your account at this time")
@@ -56,3 +57,8 @@ def registration(request):
     return render(request, 
         'registration.html', 
         {"registration_form": registration_form})
+        
+def user_profile(request):
+    """The user's profile page"""
+    user = User.objects.get(email=request.user.email)
+    return render(request, 'profile.html', {"profile": user})
