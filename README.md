@@ -16,3 +16,7 @@ http://www.youtube.com/user/c9ide.
 
 Happy coding!
 The Cloud9 IDE team
+
+(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)
+
+{ 'post_reset_confirm': reverse_lazy('password_reset_complete') },
