@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block page_title %}Registration Page{% endblock %}
 
 {% block page_heading %}Registration{% endblock %}
@@ -8,7 +9,7 @@
     <p>If you have registered, you can <a href="{% url 'login' %}">sign in here</a></p>
     <form method="POST">
         {% csrf_token %}
-        {{ registration_form.as_p }}
+        {{ registration_form.as_p  }}
     <button type="sub">{% csrf_token %}Register</button>
     </form>
 
